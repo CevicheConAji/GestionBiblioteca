@@ -1,7 +1,11 @@
 package Exceptions;
 
 public class BookNotFoundException extends RuntimeException {
-  public BookNotFoundException(String message) {
-    super(message);
-  }
+    private String ISBN;
+    public BookNotFoundException(String ISBN) {
+        this.ISBN = ISBN;
+    }
+    public String getISBN() {
+        return ISBN;
+    }
 }

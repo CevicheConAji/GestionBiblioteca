@@ -1,7 +1,11 @@
 package Exceptions;
 
 public class MemberNotFoundException extends RuntimeException {
-  public MemberNotFoundException(String message) {
-    super(message);
-  }
+    private String NIF;
+    public MemberNotFoundException(String NIF) {
+        this.NIF = NIF;
+    }
+    public String getNIF() {
+        return NIF;
+    }
 }
