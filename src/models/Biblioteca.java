@@ -102,7 +102,7 @@ public class Biblioteca implements ILibrary {
         ArrayList<Socio> socios = null;
         for (Socio socio : sociosLista) {
             if(socio.getCodigoPostal().equals(codigoPostal)){
-                socios = sociosLista;
+                socios.add(socio);
             }
         }
         return socios;
