@@ -1,8 +1,9 @@
 package models;
 
+import Exceptions.BookNotFoundException;
+import Exceptions.MemberNotFoundException;
 import Interface.ILibrary;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Biblioteca implements ILibrary {
@@ -66,24 +67,59 @@ public class Biblioteca implements ILibrary {
                 '}';
     }
 
-    @Override
-    public Libro libroPorISBN(int ISBN) {
 
-        return null;
+    @Override
+    public Libro libroPorISBN(String ISBN) {
+        Libro libroISBN = null;
+
+        for (Libro libro : librosLista) {
+            if(libro.getISBN().equals(ISBN)){
+                libroISBN = libro;
+            }
+
+        }
+        if(libroISBN == null){
+            throw new BookNotFoundException(ISBN);
+        }
+        return libroISBN;
     }
 
     @Override
     public Libro libroPorGenero(String genero) {
-        return null;
+        Libro libroGenero = null;
+        for (Libro libro : librosLista) {
+            for(String genre : libro.getGeneros()){
+                if(genre.equals(genero)){
+                    libroGenero = libro;
+                }
+            }
+        }
+        return libroGenero;
     }
 
     @Override
-    public ArrayList<Socio> libroSocioPorCodigoPostal(int codigoPostal) {
-        return null;
+    public ArrayList<Socio> socioPorCodigoPostal(String codigoPostal) {
+        ArrayList<Socio> socios = null;
+        for (Socio socio : sociosLista) {
+            if(socio.getCodigoPostal().equals(codigoPostal)){
+                socios = sociosLista;
+            }
+        }
+        return socios;
     }
 
     @Override
-    public Socio socioPorNIF(String nif) {
-        return null;
+    public Socio socioPorNIF(String nif) throws MemberNotFoundException {
+        Socio socio = null;
+        for (Socio socios : sociosLista) {
+            if(socios.getNif().equals(nif)){
+                socio = socios;
+            }
+        }
+        if(socio == null){
+            throw new MemberNotFoundException(nif);
+        }
+        return socio;
     }
+
 }
