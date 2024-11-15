@@ -1,7 +1,7 @@
 package models;
 
-import Exceptions.BookNotFoundException;
-import Exceptions.MemberNotFoundException;
+import exceptions.BookNotFoundException;
+import exceptions.MemberNotFoundException;
 import Interface.ILibrary;
 
 import java.util.ArrayList;

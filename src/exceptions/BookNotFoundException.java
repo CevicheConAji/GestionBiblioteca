@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class BookNotFoundException extends RuntimeException {
     private String ISBN;
